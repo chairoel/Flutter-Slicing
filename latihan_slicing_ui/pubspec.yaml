@@ -65,6 +65,11 @@ flutter:
       - assets/images/kubus.png
       - assets/images/circular.png
       - assets/images/syllabus1.png
+      - assets/images/project-icon.png
+      - assets/images/icon-car.png
+      - assets/images/icon-flexible.png
+      - assets/images/icon-growth.png
+      - assets/images/icon-laptop.png
    #   - images/a_dot_burr.jpeg
    #   - images/a_dot_ham.jpeg
 
