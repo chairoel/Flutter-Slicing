@@ -1,17 +1,13 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+
+Color colorBg1 = const Color(0xFF171a53);
+Color colorBg2 = const Color(0xFF142580);
+Color buttonGreen = const Color(0xFFbdea09);
 
 class FirstSlicingApp extends StatelessWidget {
   const FirstSlicingApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    Color colorBg1 = Color(0xFF171a53);
-    Color colorBg2 = Color(0xFF142580);
-    Color buttonGreen = Color(0xFFbdea09);
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -24,7 +20,7 @@ class FirstSlicingApp extends StatelessWidget {
             padding: const EdgeInsets.only(left: 18, right: 6),
           ),
           titleSpacing: 0,
-          title: Text(
+          title: const Text(
             "UDACITY",
             style: TextStyle(
                 letterSpacing: 3,
@@ -75,7 +71,7 @@ class FirstSlicingApp extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.only(bottom: 14),
                           child: Text(
-                            "Learn ++, a high-performance programming language used in the world's most exciting engineering jobs -- from self-driving cars and robotics, to web browsers, media platforms, servers, and even video games.",
+                            "Learn C++, a high-performance programming language used in the world's most exciting engineering jobs -- from self-driving cars and robotics, to web browsers, media platforms, servers, and even video games.",
                             textAlign: TextAlign.justify,
                             style: TextStyle(color: Colors.white),
                           ),
@@ -208,7 +204,7 @@ class FirstSlicingApp extends StatelessWidget {
                       "Skills acquired",
                       "Threading, Heap Memory, Dynamic Memory Allocation, Control Flow",
                       ""),
-                  textUnderline("See more skills +")
+                  textUnderline("See more skills +", Colors.white, 12, 12, 32)
                 ],
               ),
             ),
@@ -248,6 +244,64 @@ class FirstSlicingApp extends StatelessWidget {
                             letterSpacing: 1),
                       ),
                     ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        "4 months to complete",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.5),
+                      ),
+                    ),
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                      child: Text(
+                        "Get hands-on experience by coding five real-world projects. Learn to build a route planner using OpenStreetMap data, write a process monitor for your computer, and implement your own smart pointers. Finally, showcase all your newfound skills by building a multithreaded traffic simulator and coding your own C++ application.",
+                        style: TextStyle(fontSize: 16, letterSpacing: 0.5),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: 8, left: 24, right: 24),
+                      child: SizedBox(
+                        height: 48,
+                        width: 160,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: colorBg2),
+                          child: const Text(
+                            "Download Syllabus",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ),
+                    textIconUnderline("Related Nanodegree programs",
+                        Colors.black, 16, Icons.arrow_right_alt, true),
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                      child: Text(
+                        "Prerequisite knowledge",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.25),
+                      ),
+                    ),
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                      child: Text(
+                        "To optimize your chances of success in the C++ Nanodegree program, we recommend intermediate knowledge of any programming language.",
+                        style: TextStyle(fontSize: 16, letterSpacing: 0.5),
+                      ),
+                    ),
                   ]),
             )
           ],
@@ -256,86 +310,126 @@ class FirstSlicingApp extends StatelessWidget {
       ),
     );
   }
+}
 
-  BoxDecoration imageRounded(
-      double tl, double tr, double bl, double br, String url) {
-    return BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(tl),
-          topRight: Radius.circular(tr),
-          bottomLeft: Radius.circular(bl),
-          bottomRight: Radius.circular(br),
-        ),
-        image: DecorationImage(
-            image: AssetImage(
-              url,
-            ),
-            fit: BoxFit.fitHeight));
-  }
-
-  Padding textUnderline(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32, left: 12, right: 12),
-      child: Container(
-        child: Text(
-          text,
-          style: TextStyle(color: Colors.white, fontSize: 12),
-        ),
-        padding: const EdgeInsets.only(bottom: 2),
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: Colors.white, width: 1.0),
+/*-------------------------- My Function -------------------------------------*/
+BoxDecoration imageRounded(
+    double tl, double tr, double bl, double br, String url) {
+  return BoxDecoration(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(tl),
+        topRight: Radius.circular(tr),
+        bottomLeft: Radius.circular(bl),
+        bottomRight: Radius.circular(br),
+      ),
+      image: DecorationImage(
+          image: AssetImage(
+            url,
           ),
+          fit: BoxFit.fitHeight));
+}
+
+Padding textUnderline(String text, Color textColor, double textSize,
+    double pHorizontal, double pButtom) {
+  return Padding(
+    padding:
+        EdgeInsets.only(bottom: pButtom, left: pHorizontal, right: pHorizontal),
+    child: Container(
+      padding: const EdgeInsets.only(bottom: 2),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: textColor, width: 1.0),
         ),
       ),
-    );
-  }
+      child: Text(
+        text,
+        style: TextStyle(color: textColor, fontSize: textSize),
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+  );
+}
 
-  Padding fitureText(String name, String time, String desc) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 32, left: 12, right: 12),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-              ),
-              Text(
-                time,
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ],
-          ),
+Padding textIconUnderline(String text, Color textColor, double textSize,
+    IconData icon, bool boldStyle) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 32, top: 12, left: 24, right: 24),
+    child: Container(
+      width: 250,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.only(bottom: 2),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: textColor, width: 1.0),
         ),
-        Text(
-          desc,
-          style: TextStyle(color: Colors.white, fontSize: 12),
-        )
-      ]),
-    );
-  }
-
-  Padding timeCounter(String count, String label) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 24, top: 12, bottom: 12),
-      child: Column(
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            count,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
+            text,
+            style: (boldStyle)
+                ? TextStyle(
+                    color: textColor,
+                    fontSize: textSize,
+                    fontWeight: FontWeight.w600)
+                : TextStyle(color: textColor, fontSize: textSize),
           ),
-          Text(
-            label,
-            style: const TextStyle(color: Colors.white),
-          )
+          Icon(
+            Icons.arrow_right_alt,
+            size: 24.0,
+            color: textColor,
+          ),
         ],
       ),
-    );
-  }
+    ),
+  );
+}
+
+Padding fitureText(String name, String time, String desc) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 32, left: 12, right: 12),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              time,
+              style: const TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+      Text(
+        desc,
+        style: const TextStyle(color: Colors.white, fontSize: 12),
+      )
+    ]),
+  );
+}
+
+Padding timeCounter(String count, String label) {
+  return Padding(
+    padding: const EdgeInsets.only(right: 24, top: 12, bottom: 12),
+    child: Column(
+      children: [
+        Text(
+          count,
+          style: const TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
+        ),
+        Text(
+          label,
+          style: const TextStyle(color: Colors.white),
+        )
+      ],
+    ),
+  );
 }
