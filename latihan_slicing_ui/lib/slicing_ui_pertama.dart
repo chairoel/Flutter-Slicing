@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 Color colorBg1 = const Color(0xFF171a53);
 Color colorBg2 = const Color(0xFF142580);
+Color colorBg3 = const Color(0xFFf6f6f6);
 Color buttonGreen = const Color(0xFFbdea09);
 
 class FirstSlicingApp extends StatelessWidget {
   const FirstSlicingApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,10 +38,8 @@ class FirstSlicingApp extends StatelessWidget {
                 )),
           ],
         ),
-        body: ListView(
-          children: [
-            // Stack(
-            //   children: [
+        body: SingleChildScrollView(
+          child: Column(children: [
             Container(
               color: colorBg1,
               child: Column(
@@ -208,7 +208,6 @@ class FirstSlicingApp extends StatelessWidget {
                 ],
               ),
             ),
-
             Container(
               color: Colors.white,
               child: Column(
@@ -306,11 +305,42 @@ class FirstSlicingApp extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 12),
                       child: StepperWidget(),
                     ),
+                    Container(
+                      color: colorBg2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 80, bottom: 48, right: 24, left: 24),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "All our programs include:",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 32),
+                              ),
+                              programsIncludeFiture(
+                                  "icon-car.png",
+                                  "Real-world projects from industry experts",
+                                  "With real-world projects and immersive content built in partnership with top-tier companies, you’ll master the tech skills companies want."),
+                              programsIncludeFiture(
+                                  "icon-laptop.png",
+                                  "Technical mentor support",
+                                  "Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you, and keeping you on track."),
+                              programsIncludeFiture(
+                                  "icon-growth.png",
+                                  "Career services",
+                                  "You’ll have access to Github portfolio review and LinkedIn profile optimization to help you advance your career and land a high-paying role."),
+                              programsIncludeFiture(
+                                  "icon-flexible.png",
+                                  "Flexible learning program",
+                                  "Tailor a learning plan that fits your busy life. Learn at your own pace and reach your personal goals on the schedule that works best for you.")
+                            ]),
+                      ),
+                    ),
                   ]),
             )
-          ],
+          ]),
         ),
-        // ]),
       ),
     );
   }
@@ -420,6 +450,46 @@ class _StepperWidgetState extends State<StepperWidget> {
 
 /// ======================================================================== ///
 /*-------------------------- My Function -------------------------------------*/
+/**
+ * 28 Maret 2023
+ */
+Padding programsIncludeFiture(String url, String title, String content) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 32),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        Image.asset("assets/images/$url"),
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 18),
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Text(
+                  content,
+                  style: const TextStyle(color: Colors.white, fontSize: 17),
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
+
 BoxDecoration imageRounded(
     double tl, double tr, double bl, double br, String url) {
   return BoxDecoration(
@@ -483,7 +553,7 @@ Padding textIconUnderline(String text, Color textColor, double textSize,
                 : TextStyle(color: textColor, fontSize: textSize),
           ),
           Icon(
-            Icons.arrow_right_alt,
+            icon,
             size: 24.0,
             color: textColor,
           ),
