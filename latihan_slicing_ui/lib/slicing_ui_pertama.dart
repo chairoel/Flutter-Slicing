@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Color colorBg1 = const Color(0xFF171a53);
 Color colorBg2 = const Color(0xFF142580);
 Color colorBg3 = const Color(0xFFf6f6f6);
+Color colorIcon1 = const Color(0xFF213bfe);
 Color buttonGreen = const Color(0xFFbdea09);
 
 class FirstSlicingApp extends StatelessWidget {
@@ -10,6 +11,20 @@ class FirstSlicingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> litems1 = [
+      "Real-world projects",
+      "Project reviews",
+      "Project feedback from experienced reviewers"
+    ];
+    List<String> litems2 = [
+      "Technical mentor support",
+      "Student community",
+    ];
+    List<String> litems3 = [
+      "Github review",
+      "Linkedin profile optimization",
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -337,6 +352,47 @@ class FirstSlicingApp extends StatelessWidget {
                             ]),
                       ),
                     ),
+                    Container(
+                      color: colorBg3,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(
+                              top: 60,
+                              right: 24,
+                              left: 24,
+                            ),
+                            child: Text(
+                              "Program offerings",
+                              style: TextStyle(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.2),
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                programOfferingContent(litems1,
+                                    "class-content.png", "Class content", 4),
+                                programOfferingContent(
+                                    litems2,
+                                    "student-services.png",
+                                    "Student services",
+                                    2),
+                                programOfferingContent(
+                                    litems3,
+                                    "career-services.png",
+                                    "Career services",
+                                    3),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ]),
             )
           ]),
@@ -451,7 +507,85 @@ class _StepperWidgetState extends State<StepperWidget> {
 /// ======================================================================== ///
 /*-------------------------- My Function -------------------------------------*/
 /**
- * 28 Maret 2023
+ * 28 Maret 2023 part 2
+ */
+Padding programOfferingContent(
+    List<String> litems, String url, String title, int roundNumber) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 40, bottom: 40, left: 24),
+    child: SizedBox(
+      width: 280,
+      height: 400,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 200,
+            width: 260,
+            decoration: BoxDecoration(
+                color: colorBg1,
+                borderRadius: BorderRadius.only(
+                  topLeft: (roundNumber == 1)
+                      ? const Radius.circular(100)
+                      : const Radius.circular(4),
+                  topRight: (roundNumber == 2)
+                      ? const Radius.circular(100)
+                      : const Radius.circular(4),
+                  bottomRight: (roundNumber == 3)
+                      ? const Radius.circular(100)
+                      : const Radius.circular(4),
+                  bottomLeft: (roundNumber == 4)
+                      ? const Radius.circular(100)
+                      : const Radius.circular(4),
+                ),
+                image: DecorationImage(
+                    image: AssetImage("assets/images/$url"),
+                    fit: BoxFit.fitHeight)),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+            ),
+          ),
+          listDataView(litems)
+        ],
+      ),
+    ),
+  );
+}
+
+Flexible listDataView(List<String> litems) {
+  return Flexible(
+    child: ListView.builder(
+        itemCount: litems.length,
+        itemBuilder: (context, index) {
+          return iconText(Icons.check, litems[index]);
+        }),
+  );
+}
+
+Row iconText(IconData icon, String text) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Icon(icon, color: colorIcon1),
+      Padding(
+        padding: const EdgeInsets.only(left: 12),
+        child: SizedBox(
+          width: 240,
+          child: Text(text),
+        ),
+      ),
+    ],
+  );
+}
+
+/**
+ * 28 Maret 2023 part 1
  */
 Padding programsIncludeFiture(String url, String title, String content) {
   return Padding(
