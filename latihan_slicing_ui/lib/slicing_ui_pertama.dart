@@ -353,44 +353,47 @@ class FirstSlicingApp extends StatelessWidget {
                       ),
                     ),
                     Container(
+                      width: MediaQuery.of(context).size.width,
                       color: colorBg3,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(
-                              top: 60,
-                              right: 24,
-                              left: 24,
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(
+                                top: 60,
+                                right: 24,
+                                left: 24,
+                              ),
+                              child: Text(
+                                "Program offerings",
+                                style: TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.2),
+                              ),
                             ),
-                            child: Text(
-                              "Program offerings",
-                              style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0.2),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  programOfferingContent(litems1,
+                                      "class-content.png", "Class content", 4),
+                                  programOfferingContent(
+                                      litems2,
+                                      "student-services.png",
+                                      "Student services",
+                                      2),
+                                  programOfferingContent(
+                                      litems3,
+                                      "career-services.png",
+                                      "Career services",
+                                      3),
+                                ],
+                              ),
                             ),
-                          ),
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                programOfferingContent(litems1,
-                                    "class-content.png", "Class content", 4),
-                                programOfferingContent(
-                                    litems2,
-                                    "student-services.png",
-                                    "Student services",
-                                    2),
-                                programOfferingContent(
-                                    litems3,
-                                    "career-services.png",
-                                    "Career services",
-                                    3),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ]),
