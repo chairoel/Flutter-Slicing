@@ -59,17 +59,22 @@ flutter:
 
    # To add assets to your application, add an assets section, like this:
    assets:
-      - assets/images/hero1.png
-      - assets/images/pattern.png
-      - assets/images/personalized.png
-      - assets/images/kubus.png
-      - assets/images/circular.png
-      - assets/images/syllabus1.png
-      - assets/images/project-icon.png
-      - assets/images/icon-car.png
-      - assets/images/icon-flexible.png
-      - assets/images/icon-growth.png
-      - assets/images/icon-laptop.png
+      - assets/images/
+      # - assets/images/hero1.png
+      # - assets/images/pattern.png
+      # - assets/images/personalized.png
+      # - assets/images/kubus.png
+      # - assets/images/circular.png
+      # - assets/images/syllabus1.png
+      # - assets/images/project-icon.png
+      # - assets/images/icon-car.png
+      # - assets/images/icon-flexible.png
+      # - assets/images/icon-growth.png
+      # - assets/images/icon-laptop.png
+      # - assets/images/class-content.png
+      # - assets/images/career-services.png
+      # - assets/images/student-services.png
+
    #   - images/a_dot_burr.jpeg
    #   - images/a_dot_ham.jpeg
 
