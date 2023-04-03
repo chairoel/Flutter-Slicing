@@ -359,20 +359,7 @@ class FirstSlicingApp extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                top: 60,
-                                right: 24,
-                                left: 24,
-                              ),
-                              child: Text(
-                                "Program offerings",
-                                style: TextStyle(
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 0.2),
-                              ),
-                            ),
+                            titleFiture("Program offerings"),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -396,11 +383,130 @@ class FirstSlicingApp extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const TabBarWidget()
                   ]),
             )
           ]),
         ),
       ),
+    );
+  }
+}
+
+/* ------------- [Tab Bar Fiture] -------------
+* Start Tab Bar Fiture
+*/
+
+class TabBarWidget extends StatefulWidget {
+  const TabBarWidget({super.key});
+
+  @override
+  State<TabBarWidget> createState() => _TabBarWidgetState();
+}
+
+class _TabBarWidgetState extends State<TabBarWidget>
+    with TickerProviderStateMixin {
+  List<String> litems1 = [
+    "Personalized feedback",
+    "Unlimited submissions and feedback loops",
+    "Practical tips and industry best practices",
+    "Additional suggested resources to improve"
+  ];
+
+  List<String> litems2 = [
+    "Support for all your technical questions",
+    "Questions answered quickly by our team of technical mentors"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    TabController tabController = TabController(length: 2, vsync: this);
+
+    return Container(
+      color: Colors.white,
+      child: Center(
+          child: Column(
+        children: [
+          titleFiture("Succeed with personalized services."),
+          descFiture(
+            "We provide services customized for your needs at every step of your learning journey to ensure your success.",
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: TabBar(
+                controller: tabController,
+                isScrollable: true,
+                labelPadding: const EdgeInsets.symmetric(horizontal: 20),
+                labelColor: colorIcon1,
+                unselectedLabelColor: Colors.black,
+                indicatorColor: colorIcon1,
+                tabs: const [
+                  Tab(text: "Experienced Project Reviewers"),
+                  Tab(text: "Technical Mentor Support"),
+                ]),
+          ),
+          Container(
+            // color: Colors.amber,
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            width: double.maxFinite,
+            height: 700,
+            child: TabBarView(controller: tabController, children: [
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 24),
+                    child: Image.asset("assets/images/feedback.png",
+                        fit: BoxFit.fitWidth),
+                  ),
+                  Container(
+                      height: 120,
+                      // color: Colors.cyan,
+                      child: listDataView(litems1)),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        serviceRate("1,400+", "project reviewers"),
+                        serviceRate("2.7M", "projects reviewed"),
+                      ]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        serviceRate("88/100", "reviewer rating"),
+                        serviceRate(
+                            "1.1 hours", "avg project review turnaround time"),
+                      ]),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 24, horizontal: 12),
+                    padding: const EdgeInsets.only(bottom: 13),
+                    child: Image.asset("assets/images/on-demand.png",
+                        fit: BoxFit.fitWidth),
+                  ),
+                  Container(
+                      height: 120,
+                      // color: Colors.cyan,
+                      child: listDataView(litems2)),
+                  Expanded(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          serviceRate("1,400+", "project reviewers"),
+                          serviceRate("0.85 hours", "median response time"),
+                        ]),
+                  ),
+                ],
+              ),
+            ]),
+          )
+        ],
+      )),
     );
   }
 }
@@ -509,6 +615,55 @@ class _StepperWidgetState extends State<StepperWidget> {
 
 /// ======================================================================== ///
 /*-------------------------- My Function -------------------------------------*/
+
+Container serviceRate(String title, String desc) {
+  return Container(
+    // color: Colors.blue,
+    margin: const EdgeInsets.only(top: 12, bottom: 12),
+    width: 150,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+              color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          desc,
+          style: const TextStyle(color: Colors.black),
+        ),
+      ],
+    ),
+  );
+}
+
+Padding descFiture(String text) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+    child: Text(
+      text,
+      style: const TextStyle(fontSize: 16, letterSpacing: 0.5),
+    ),
+  );
+}
+
+Padding titleFiture(String text) {
+  return Padding(
+    padding: const EdgeInsets.only(
+      top: 60,
+      right: 24,
+      left: 24,
+    ),
+    child: Text(
+      text,
+      style: const TextStyle(
+          fontSize: 32, fontWeight: FontWeight.w500, letterSpacing: 0.2),
+    ),
+  );
+}
+
 /**
  * 28 Maret 2023 part 2
  */
