@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_slicing_ui/bottom_nav.dart';
 import 'package:latihan_slicing_ui/pages/navpages/slicing_ui_pertama.dart';
-import 'package:latihan_slicing_ui/testpages/stepper_test.dart';
-import 'package:latihan_slicing_ui/testpages/test_ui_function.dart';
-import 'package:latihan_slicing_ui/testpages/test_ui_function2.dart';
+import 'package:latihan_slicing_ui/test_fiture/bottom_nav.dart';
+import 'package:latihan_slicing_ui/test_pages/stepper_test.dart';
+import 'package:latihan_slicing_ui/test_pages/test_ui_function.dart';
+import 'package:latihan_slicing_ui/test_pages/test_ui_function2.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
