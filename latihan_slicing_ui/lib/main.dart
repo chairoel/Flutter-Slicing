@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_slicing_ui/main_page.dart';
-import 'package:latihan_slicing_ui/slicing_ui_pertama.dart';
+import 'package:latihan_slicing_ui/pages/navpages/main_page.dart';
 
 void main() {
   runApp(const MyApp());
