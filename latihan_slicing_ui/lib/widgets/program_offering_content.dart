@@ -11,6 +11,7 @@ class MyProgramOfferingContent extends StatelessWidget {
   final String title;
   final CircularSide circularSide;
   final double circularRadius;
+  final double circularRadiusOthers;
 
   const MyProgramOfferingContent({
     super.key,
@@ -18,6 +19,7 @@ class MyProgramOfferingContent extends StatelessWidget {
     required this.title,
     required this.circularSide,
     this.circularRadius = 100.0,
+    this.circularRadiusOthers = 4.0,
     required this.listItems,
   });
 
@@ -37,8 +39,8 @@ class MyProgramOfferingContent extends StatelessWidget {
               width: 260,
               decoration: BoxDecoration(
                   color: AppColors.colorBg1,
-                  borderRadius: Util()
-                      .borderRadiusSelection(circularSide, circularRadius),
+                  borderRadius: Util().borderRadiusSelection(
+                      circularSide, circularRadius, circularRadiusOthers),
                   image: DecorationImage(
                       image: AssetImage("assets/images/$image"),
                       fit: BoxFit.fitHeight)),

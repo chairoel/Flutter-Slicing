@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TitleFiture extends StatelessWidget {
   final String title;
+  final TextAlign? textAlign;
   final Color color;
   final double letterSpacing;
   final double paddingTop;
@@ -11,6 +12,7 @@ class TitleFiture extends StatelessWidget {
   const TitleFiture({
     super.key,
     required this.title,
+    this.textAlign,
     this.color = Colors.black,
     this.letterSpacing = 0.2,
     this.paddingTop = 60.0,
@@ -35,6 +37,7 @@ class TitleFiture extends StatelessWidget {
             fontSize: 32,
             fontWeight: FontWeight.w500,
             letterSpacing: letterSpacing),
+        textAlign: textAlign,
       ),
     );
   }

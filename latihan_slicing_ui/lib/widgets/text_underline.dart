@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyTextUnderline extends StatelessWidget {
   final String text;
   final Color textColor;
+  final FontWeight fontWeight;
   final double textSize;
   final double pTop;
   final double pButtom;
@@ -13,6 +14,7 @@ class MyTextUnderline extends StatelessWidget {
     super.key,
     required this.text,
     required this.textColor,
+    this.fontWeight = FontWeight.normal,
     this.textSize = 14,
     this.pTop = 0,
     this.pButtom = 0,
@@ -34,7 +36,11 @@ class MyTextUnderline extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(color: textColor, fontSize: textSize),
+          style: TextStyle(
+            color: textColor,
+            fontSize: textSize,
+            fontWeight: fontWeight,
+          ),
           overflow: TextOverflow.ellipsis,
         ),
       ),

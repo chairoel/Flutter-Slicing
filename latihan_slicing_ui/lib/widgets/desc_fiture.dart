@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class DescFiture extends StatelessWidget {
   final String text;
+  final Color textColor;
+  final TextAlign? textAlign;
   final double textSize;
   final double letterSpacing;
   final double paddingTop;
@@ -12,6 +14,8 @@ class DescFiture extends StatelessWidget {
   const DescFiture({
     super.key,
     required this.text,
+    this.textColor = Colors.black,
+    this.textAlign,
     this.textSize = 16.0,
     this.letterSpacing = 0.5,
     this.paddingTop = 18.0,
@@ -31,7 +35,9 @@ class DescFiture extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(fontSize: textSize, letterSpacing: letterSpacing),
+        style: TextStyle(
+            color: textColor, fontSize: textSize, letterSpacing: letterSpacing),
+        textAlign: textAlign,
       ),
     );
   }
