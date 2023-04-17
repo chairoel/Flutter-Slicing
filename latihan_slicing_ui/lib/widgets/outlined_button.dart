@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyOutlineButton extends StatelessWidget {
   final String text;
   final Color textColor;
+  final double? textSize;
   final Color borderColor;
   final double borderWidht;
   final double height;
@@ -12,6 +13,7 @@ class MyOutlineButton extends StatelessWidget {
   const MyOutlineButton({
     super.key,
     required this.text,
+    this.textSize,
     this.textColor = Colors.white,
     this.borderColor = Colors.white,
     this.borderWidht = 2.0,
@@ -31,7 +33,7 @@ class MyOutlineButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: textColor, fontSize: textSize),
         ),
       ),
     );
