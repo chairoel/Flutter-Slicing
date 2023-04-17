@@ -4,7 +4,7 @@ import 'package:latihan_slicing_ui/misc/AppColors.dart';
 import 'package:latihan_slicing_ui/widgets/button_right_icon.dart';
 import 'package:latihan_slicing_ui/widgets/custom_appbar.dart';
 import 'package:latihan_slicing_ui/widgets/custom_drawer.dart';
-import 'package:latihan_slicing_ui/widgets/custom_outlined_button.dart';
+import 'package:latihan_slicing_ui/widgets/outlined_button.dart';
 import 'package:latihan_slicing_ui/widgets/custom_stepper.dart';
 import 'package:latihan_slicing_ui/widgets/custom_tabbar.dart';
 import 'package:latihan_slicing_ui/widgets/info_program_detail.dart';
